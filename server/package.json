@@ -1,5 +1,5 @@
 {
-  "name": "smooch-api-quickstart-example",
+  "name": "modal-example-server",
   "version": "1.0.0",
   "description": "Sample code to get started with the Smooch REST APIs",
   "main": "index.js",

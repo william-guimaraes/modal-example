@@ -8,11 +8,10 @@ const SunshineConversationsApi = require('sunshine-conversations-client');
 // Config
 let defaultClient = SunshineConversationsApi.ApiClient.instance;
 let basicAuth = defaultClient.authentications['basicAuth'];
-basicAuth.username = 'act_6275048027598500f5ad2b55';
-basicAuth.password = '8ONzwAxg3zYPPtRlNTPEnjtcoJFlBTLAsHiU7nCozCNLJz9hzYStWmetjRJpQtw_nWzzL_9iIkM2lN9S1TPgOg';
+basicAuth.username = 'APP_KEY_ID';
+basicAuth.password = 'APP_KEY_SECRET';
 const PORT = 8000;
 
-const appApiInstance = new SunshineConversationsApi.AppsApi();
 const messageApiInstance = new SunshineConversationsApi.MessagesApi()
 
 // Server https://expressjs.com/en/guide/routing.html
@@ -37,20 +36,6 @@ app.post('/messages', function(req, res) {
     }
   }
 });
-
-const createApp = async (req, res) => {
-  const appCreateBody = new SunshineConversationsApi.AppCreateBody('MyTestApp');
-  try {
-    const response = await appApiInstance.createApp(appCreateBody)
-    console.log('API called successfully. Returned data: ' + response);
-    res.status(200).send('OK')
-  } catch (e) {
-    console.log(e)
-    res.status(400).send('NOT OK')
-  }
-}
-
-app.get('/create', createApp)
 
 // Listen on port
 app.listen(PORT, () => {
